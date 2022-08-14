@@ -14,3 +14,9 @@ services:
       - .:/app
 
     working_dir: /app
+
+  db:
+    image: postgres
+
+    environment:
+      POSTGRES_PASSWORD: test
