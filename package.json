@@ -12,6 +12,9 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage"
   },
+  "dependencies": {
+    "commander": "^9.4.0"
+  },
   "devDependencies": {
     "@types/jest": "^28.1.6",
     "@types/node": "^18.7.3",

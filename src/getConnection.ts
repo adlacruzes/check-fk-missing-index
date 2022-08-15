@@ -1,13 +1,19 @@
-import {Client} from "pg";
+import { Client } from 'pg';
 
 export class GetConnection {
-  public handle(): Client {
+  public handle(
+    user: string,
+    host: string,
+    database: string,
+    password: string,
+    port: number,
+  ): Client {
     return new Client({
-      user: 'postgres',
-      host: 'db',
-      database: 'postgres',
-      password: 'test',
-      port: 5432,
+      user,
+      host,
+      database,
+      password,
+      port,
     });
   }
 }
