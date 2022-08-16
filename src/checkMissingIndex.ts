@@ -1,20 +1,13 @@
 import {GetQuery} from "./getQuery";
 import {ExecuteQuery} from "./executeQuery";
+import {ConnectionConfig} from "./connectionConfig";
 
 export class CheckMissingIndex {
   public async handle(
-    user: string,
-    host: string,
-    database: string,
-    password: string,
-    port: number
+    connectionConfig: ConnectionConfig
   ): Promise<void> {
     const result = await new ExecuteQuery().handle(
-      user,
-      host,
-      database,
-      password,
-      port,
+      connectionConfig,
       new GetQuery().handle()
     );
 

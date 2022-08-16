@@ -1,21 +1,14 @@
 import { Client } from 'pg';
+import {ConnectionConfig} from "./connectionConfig";
 
 export class ExecuteQuery {
   public async handle(
-    user: string,
-    host: string,
-    database: string,
-    password: string,
-    port: number,
+    connectionConfig: ConnectionConfig,
     query: string
   ): Promise<any[]> {
-    const client = new Client({
-      user,
-      host,
-      database,
-      password,
-      port,
-    });
+    const client = new Client(
+      connectionConfig
+    );
 
     await client.connect();
 

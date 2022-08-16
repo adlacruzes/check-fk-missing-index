@@ -1,5 +1,6 @@
 import {Command} from 'commander';
 import {CheckMissingIndex} from './checkMissingIndex';
+import {ConnectionConfig} from "./connectionConfig";
 
 const program = new Command();
 
@@ -23,11 +24,13 @@ program
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
     new CheckMissingIndex().handle(
-      options.username,
-      options.host,
-      options.dbname,
-      options.password,
-      options.port
+      new ConnectionConfig(
+        options.username,
+        options.host,
+        options.dbname,
+        options.password,
+        options.port
+      )
     );
   });
 
