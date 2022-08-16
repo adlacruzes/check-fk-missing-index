@@ -7,22 +7,22 @@ const program = new Command();
 
 program
   .option(
-    '--host <host>',
+    '-h, --host <host>',
     'database server host or socket directory (default: "localhost")',
     'localhost',
   )
-  .option('--port <port>', 'database server port (default: "5432")', '5432')
+  .option('-p, --port <port>', 'database server port (default: "5432")', '5432')
   .option(
-    '--username <username>',
+    '-U, --username <username>',
     'database user name (default: "postgres")',
     'postgres',
   )
   .option(
-    '--dbname <dbname>',
+    '-d, --dbname <dbname>',
     'database name to connect to (default: "postgres")',
     'postgres',
   )
-  .option('--password <password>', 'database password', '');
+  .option('-W, --password <password>', 'database password', '');
 
 program.parse(process.argv);
 
