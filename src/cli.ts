@@ -1,7 +1,5 @@
-import { Command } from 'commander';
-import { CheckMissingIndex } from './checkMissingIndex';
-import { GetConnection } from './getConnection';
-import { GetQuery } from './getQuery';
+import {Command} from 'commander';
+import {CheckMissingIndex} from './checkMissingIndex';
 
 const program = new Command();
 
@@ -22,25 +20,15 @@ program
     'database name to connect to (default: "postgres")',
     'postgres',
   )
-  .option('-W, --password <password>', 'database password', '');
-
-program.parse(process.argv);
-
-const options = program.opts();
-console.log(options);
-const index = async () => {
-  const result = await new CheckMissingIndex().handle(
-    new GetConnection().handle(
+  .option('-W, --password <password>', 'database password', '')
+  .action((options) => {
+    new CheckMissingIndex().handle(
       options.username,
       options.host,
       options.dbname,
       options.password,
-      options.port,
-    ),
-    new GetQuery().handle(),
-  );
+      options.port
+    );
+  });
 
-  console.log(result.rows);
-};
-
-index();
+program.parse(process.argv);
