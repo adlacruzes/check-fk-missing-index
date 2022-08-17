@@ -1,7 +1,7 @@
 import {PrinterInterface} from "./printerInterface";
 import {getBorderCharacters, table} from "table";
 
-export class PrettyPrinter implements PrinterInterface {
+export class TablePrinter implements PrinterInterface {
   print(rows: any[]): void {
     const headers = Object.keys(rows[0]).map(r => r.toUpperCase());
 

@@ -1,7 +1,7 @@
 import {Command, Option} from 'commander';
 import {CheckMissingIndex} from './checkMissingIndex';
 import {ConnectionConfig} from "./connectionConfig";
-import {PrettyPrinter} from "./printers/prettyPrinter";
+import {TablePrinter} from "./printers/tablePrinter";
 import {PrinterInterface} from "./printers/printerInterface";
 import {JsonPrinter} from "./printers/jsonPrinter";
 
@@ -52,7 +52,7 @@ function getPrinter(format: string): PrinterInterface {
     case 'table':
     case 'minimal':
     default:
-      return new PrettyPrinter();
+      return new TablePrinter();
 
   }
 }
