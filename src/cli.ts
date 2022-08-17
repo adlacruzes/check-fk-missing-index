@@ -1,6 +1,7 @@
 import {Command} from 'commander';
 import {CheckMissingIndex} from './checkMissingIndex';
 import {ConnectionConfig} from "./connectionConfig";
+import {PrettyPrinter} from "./printers/prettyPrinter";
 
 const program = new Command();
 
@@ -23,7 +24,7 @@ program
   )
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
-    new CheckMissingIndex().handle(
+    new CheckMissingIndex(new PrettyPrinter()).handle(
       new ConnectionConfig(
         options.username,
         options.host,
