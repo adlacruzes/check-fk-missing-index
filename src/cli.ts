@@ -4,6 +4,7 @@ import {ConnectionConfig} from "./connectionConfig";
 import {TablePrinter} from "./printers/tablePrinter";
 import {PrinterInterface} from "./printers/printerInterface";
 import {JsonPrinter} from "./printers/jsonPrinter";
+import {MinimalPrinter} from "./printers/minimalPrinter";
 
 const program = new Command();
 
@@ -49,8 +50,9 @@ function getPrinter(format: string): PrinterInterface {
   switch (format) {
     case 'json':
       return new JsonPrinter();
-    case 'table':
     case 'minimal':
+      return new MinimalPrinter();
+    case 'table':
     default:
       return new TablePrinter();
 
