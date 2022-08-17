@@ -1,9 +1,14 @@
-import {Command} from 'commander';
+import {Command, Option} from 'commander';
 import {CheckMissingIndex} from './checkMissingIndex';
 import {ConnectionConfig} from "./connectionConfig";
 import {PrettyPrinter} from "./printers/prettyPrinter";
+import {PrinterInterface} from "./printers/printerInterface";
 
 const program = new Command();
+
+program
+  .addOption(new Option('--format <format>', 'Output format').default('table')
+  .choices(['table', 'json', 'minimal']));
 
 program
   .option(
@@ -24,7 +29,9 @@ program
   )
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
-    new CheckMissingIndex(new PrettyPrinter()).handle(
+    new CheckMissingIndex(
+      getPrinter(options.format)
+    ).handle(
       new ConnectionConfig(
         options.username,
         options.host,
@@ -36,3 +43,15 @@ program
   });
 
 program.parse(process.argv);
+
+function getPrinter(format: string): PrinterInterface {
+  console.log(format)
+  switch (format) {
+    case 'json':
+    case 'table':
+    case 'minimal':
+    default:
+      return new PrettyPrinter();
+
+  }
+}
