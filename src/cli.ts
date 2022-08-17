@@ -3,6 +3,7 @@ import {CheckMissingIndex} from './checkMissingIndex';
 import {ConnectionConfig} from "./connectionConfig";
 import {PrettyPrinter} from "./printers/prettyPrinter";
 import {PrinterInterface} from "./printers/printerInterface";
+import {JsonPrinter} from "./printers/jsonPrinter";
 
 const program = new Command();
 
@@ -45,9 +46,9 @@ program
 program.parse(process.argv);
 
 function getPrinter(format: string): PrinterInterface {
-  console.log(format)
   switch (format) {
     case 'json':
+      return new JsonPrinter();
     case 'table':
     case 'minimal':
     default:
