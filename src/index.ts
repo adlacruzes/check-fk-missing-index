@@ -41,7 +41,10 @@ program
         options.password,
         options.port
       )
-    );
+    ).catch((error) => {
+      console.log(error.toString())
+      process.exit(1);
+    });
   });
 
 program.parse(process.argv);

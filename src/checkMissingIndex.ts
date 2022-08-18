@@ -13,7 +13,9 @@ export class CheckMissingIndex {
     const result = await new ExecuteQuery().handle(
       connectionConfig,
       new GetQuery().handle()
-    );
+    ).catch(() => {
+      throw new Error('Can not access to pg_catalog schema')
+    });
 
     if (result.length > 0) {
       this.printer.print(result);
