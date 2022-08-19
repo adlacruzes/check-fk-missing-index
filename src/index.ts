@@ -41,7 +41,13 @@ program
         options.password,
         options.port
       )
-    ).catch((error) => {
+    ).then((indexFound) => {
+      if (indexFound > 0) {
+        process.exit(1);
+      }
+
+      process.exit(0);
+    }).catch((error) => {
       console.log(error.toString())
       process.exit(1);
     });

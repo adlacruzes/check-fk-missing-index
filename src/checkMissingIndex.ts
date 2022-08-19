@@ -9,7 +9,7 @@ export class CheckMissingIndex {
 
   public async handle(
     connectionConfig: ConnectionConfig
-  ): Promise<void> {
+  ): Promise<number> {
     const result = await new ExecuteQuery().handle(
       connectionConfig,
       new GetQuery().handle()
@@ -20,5 +20,7 @@ export class CheckMissingIndex {
     if (result.length > 0) {
       this.printer.print(result);
     }
+
+    return result.length;
   }
 }
