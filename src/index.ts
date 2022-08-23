@@ -19,18 +19,18 @@ program
 program
   .option(
     '-h, --host <host>',
-    'database server host or socket directory (default: "localhost")',
+    'database server host or socket directory',
     'localhost',
   )
-  .option('-p, --port <port>', 'database server port (default: "5432")', '5432')
+  .option('-p, --port <port>', 'database server port', '5432')
   .option(
     '-U, --username <username>',
-    'database user name (default: "postgres")',
+    'database user name',
     'postgres',
   )
   .option(
     '-d, --dbname <dbname>',
-    'database name to connect to (default: "postgres")',
+    'database name to connect to',
     'postgres',
   )
   .option('-W, --password <password>', 'database password', '')
