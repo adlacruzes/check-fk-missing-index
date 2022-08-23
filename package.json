@@ -6,7 +6,6 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "lint": "eslint \"{src,test}/**/*.ts\"",
     "lint-fix": "eslint \"{src,test}/**/*.ts\" --fix",
     "test": "jest",
