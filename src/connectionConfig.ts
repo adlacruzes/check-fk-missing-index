@@ -5,6 +5,5 @@ export class ConnectionConfig {
     public database: string,
     public password: string,
     public port: number,
-  ) {
-  }
+  ) {}
 }

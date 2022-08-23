@@ -1,14 +1,12 @@
 import { Client } from 'pg';
-import {ConnectionConfig} from "./connectionConfig";
+import { ConnectionConfig } from './connectionConfig';
 
 export class ExecuteQuery {
   public async handle(
     connectionConfig: ConnectionConfig,
-    query: string
+    query: string,
   ): Promise<any[]> {
-    const client = new Client(
-      connectionConfig
-    );
+    const client = new Client(connectionConfig);
 
     await client.connect();
 

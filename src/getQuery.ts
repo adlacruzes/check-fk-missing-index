@@ -29,6 +29,6 @@ export class GetQuery {
               OPERATOR(pg_catalog.@>) c.conkey)
               AND c.contype = 'f'
             GROUP BY c.conrelid, c.conname, c.confrelid
-            ORDER BY pg_catalog.pg_relation_size(c.conrelid) DESC;`
+            ORDER BY pg_catalog.pg_relation_size(c.conrelid) DESC;`;
   }
 }
