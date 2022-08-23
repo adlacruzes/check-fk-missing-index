@@ -9,6 +9,10 @@ import {MinimalPrinter} from "./printers/minimalPrinter";
 const program = new Command();
 
 program
+  .name('check-fk-missing-index')
+  .version('0.1.0');
+
+program
   .addOption(new Option('--format <format>', 'Output format').default('table')
   .choices(['table', 'json', 'minimal']));
 
