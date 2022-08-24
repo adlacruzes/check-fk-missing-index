@@ -2,6 +2,7 @@ import { Command, Option } from 'commander';
 import { CheckMissingIndex } from './checkMissingIndex';
 import { ConnectionConfig } from './connectionConfig';
 import { GetPrinter } from './printers/getPrinter';
+import * as chalk from 'chalk';
 
 const program = new Command();
 
@@ -42,7 +43,7 @@ program
         process.exit(0);
       })
       .catch((error) => {
-        console.log(error.toString());
+        console.log(chalk.white.bgRed.bold(error.toString()));
         process.exit(1);
       });
   });
