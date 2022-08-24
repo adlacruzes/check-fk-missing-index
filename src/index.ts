@@ -1,10 +1,7 @@
 import { Command, Option } from 'commander';
 import { CheckMissingIndex } from './checkMissingIndex';
 import { ConnectionConfig } from './connectionConfig';
-import { TablePrinter } from './printers/tablePrinter';
-import { PrinterInterface } from './printers/printerInterface';
-import { JsonPrinter } from './printers/jsonPrinter';
-import { MinimalPrinter } from './printers/minimalPrinter';
+import { GetPrinter } from './printers/getPrinter';
 
 const program = new Command();
 
@@ -27,7 +24,7 @@ program
   .option('-d, --dbname <dbname>', 'database name to connect to', 'postgres')
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
-    new CheckMissingIndex(getPrinter(options.format))
+    new CheckMissingIndex(GetPrinter(options.format))
       .handle(
         new ConnectionConfig(
           options.username,
@@ -51,15 +48,3 @@ program
   });
 
 program.parse(process.argv);
-
-function getPrinter(format: string): PrinterInterface {
-  switch (format) {
-    case 'json':
-      return new JsonPrinter();
-    case 'minimal':
-      return new MinimalPrinter();
-    case 'table':
-    default:
-      return new TablePrinter();
-  }
-}
