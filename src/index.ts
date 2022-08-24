@@ -1,6 +1,6 @@
 import { Command, Option } from 'commander';
 import { CheckMissingIndex } from './checkMissingIndex';
-import { ConnectionConfig } from './connectionConfig';
+import { ConnectionConfig } from './database/connectionConfig';
 import { GetPrinter } from './printers/getPrinter';
 import * as chalk from 'chalk';
 
