@@ -26,16 +26,7 @@ program
   .option('-d, --dbname <dbname>', 'database name to connect to', 'postgres')
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
-    new CheckMissingIndex(new ExecuteQuery(), GetPrinter(options.format))
-      .handle(
-        new ConnectionConfig(
-          options.username,
-          options.host,
-          options.dbname,
-          options.password,
-          options.port,
-        ),
-      )
+    mainCommand(options)
       .then((indexFound) => {
         if (indexFound > 0) {
           process.exit(1);
@@ -50,3 +41,18 @@ program
   });
 
 program.parse(process.argv);
+
+function mainCommand(options: any): Promise<number> {
+  return new CheckMissingIndex(
+    new ExecuteQuery(),
+    GetPrinter(options.format),
+  ).handle(
+    new ConnectionConfig(
+      options.username,
+      options.host,
+      options.dbname,
+      options.password,
+      options.port,
+    ),
+  );
+}
