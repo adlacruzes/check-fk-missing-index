@@ -4,10 +4,13 @@ import { ConnectionConfig } from './database/connectionConfig';
 import { PrinterInterface } from './printers/printerInterface';
 
 export class CheckMissingIndex {
-  constructor(private printer: PrinterInterface) {}
+  constructor(
+    private executeQuery: ExecuteQuery,
+    private printer: PrinterInterface,
+  ) {}
 
   public async handle(connectionConfig: ConnectionConfig): Promise<number> {
-    const result = await new ExecuteQuery().handle(
+    const result = await this.executeQuery.handle(
       connectionConfig,
       new GetQuery().handle(),
     );

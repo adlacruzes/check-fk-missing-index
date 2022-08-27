@@ -3,6 +3,7 @@ import { CheckMissingIndex } from './checkMissingIndex';
 import { ConnectionConfig } from './database/connectionConfig';
 import { GetPrinter } from './printers/getPrinter';
 import * as chalk from 'chalk';
+import { ExecuteQuery } from './database/executeQuery';
 
 const program = new Command();
 
@@ -25,7 +26,7 @@ program
   .option('-d, --dbname <dbname>', 'database name to connect to', 'postgres')
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
-    new CheckMissingIndex(GetPrinter(options.format))
+    new CheckMissingIndex(new ExecuteQuery(), GetPrinter(options.format))
       .handle(
         new ConnectionConfig(
           options.username,
