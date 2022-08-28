@@ -4,6 +4,7 @@ import { ConnectionConfig } from './database/connectionConfig';
 import { GetPrinter } from './printers/getPrinter';
 import * as chalk from 'chalk';
 import { ExecuteQuery } from './database/executeQuery';
+import { GetQuery } from './database/getQuery';
 
 const program = new Command();
 
@@ -45,6 +46,7 @@ program.parse(process.argv);
 function mainCommand(options: any): Promise<number> {
   return new CheckMissingIndex(
     new ExecuteQuery(),
+    new GetQuery(),
     GetPrinter(options.format),
   ).handle(
     new ConnectionConfig(

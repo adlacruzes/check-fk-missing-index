@@ -6,13 +6,14 @@ import { PrinterInterface } from './printers/printerInterface';
 export class CheckMissingIndex {
   constructor(
     private executeQuery: ExecuteQuery,
+    private getQuery: GetQuery,
     private printer: PrinterInterface,
   ) {}
 
   public async handle(connectionConfig: ConnectionConfig): Promise<number> {
     const result = await this.executeQuery.handle(
       connectionConfig,
-      new GetQuery().handle(),
+      this.getQuery.handle(),
     );
 
     if (result.length > 0) {
