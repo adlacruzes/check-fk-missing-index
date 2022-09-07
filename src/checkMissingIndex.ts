@@ -1,13 +1,13 @@
 import { GetQuery } from './database/getQuery';
 import { ExecuteQuery } from './database/executeQuery';
 import { ConnectionConfig } from './database/connectionConfig';
-import { PrinterInterface } from './printers/printerInterface';
+import { Printer } from './printers/printer';
 
 export class CheckMissingIndex {
   constructor(
     private executeQuery: ExecuteQuery,
     private getQuery: GetQuery,
-    private printer: PrinterInterface,
+    private printer: Printer,
   ) {}
 
   public async handle(connectionConfig: ConnectionConfig): Promise<number> {

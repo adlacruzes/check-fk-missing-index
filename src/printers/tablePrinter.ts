@@ -1,7 +1,7 @@
-import { PrinterInterface } from './printerInterface';
+import { Printer } from './printer';
 import { getBorderCharacters, table } from 'table';
 
-export class TablePrinter implements PrinterInterface {
+export class TablePrinter extends Printer {
   print(rows: any[]): void {
     const headers = Object.keys(rows[0]).map((r) => r.toUpperCase());
 

@@ -1,6 +1,6 @@
-import { PrinterInterface } from './printerInterface';
+import { Printer } from './printer';
 
-export class MinimalPrinter implements PrinterInterface {
+export class MinimalPrinter extends Printer {
   print(rows: any[]): void {
     console.log('Missing foreign keys index');
     console.log();

@@ -1,10 +1,10 @@
-import { PrinterInterface } from './printerInterface';
+import { Printer } from './printer';
 import { JsonPrinter } from './jsonPrinter';
 import { MinimalPrinter } from './minimalPrinter';
 import { TablePrinter } from './tablePrinter';
 
 export class GetPrinter {
-  public handle(format: string): PrinterInterface {
+  public handle(format: string): Printer {
     switch (format) {
       case 'json':
         return new JsonPrinter();

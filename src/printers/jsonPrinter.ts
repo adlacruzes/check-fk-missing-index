@@ -1,6 +1,6 @@
-import { PrinterInterface } from './printerInterface';
+import { Printer } from './printer';
 
-export class JsonPrinter implements PrinterInterface {
+export class JsonPrinter extends Printer {
   print(rows: any[]): void {
     console.log(rows);
   }
