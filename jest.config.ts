@@ -2,5 +2,6 @@ export default {
   preset: 'ts-jest',
   testEnvironment: 'node',
   collectCoverageFrom: ['./src/**'],
-  resetMocks: true
+  resetMocks: true,
+  coverageReporters: ['text']
 }
