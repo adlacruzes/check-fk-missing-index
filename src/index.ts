@@ -47,7 +47,7 @@ function mainCommand(options: any): Promise<number> {
   return new CheckMissingIndex(
     new ExecuteQuery(),
     new GetQuery(),
-    GetPrinter(options.format),
+    new GetPrinter().handle(options.format),
   ).handle(
     new ConnectionConfig(
       options.username,
