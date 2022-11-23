@@ -1,5 +1,5 @@
 import { Printer } from '../src/printers/printer';
-import { GetPrinter } from '../src/printers/getPrinter';
+import { GetPrinter } from '../src/printers/get-printer';
 
 describe('Get printer', () => {
   const dataset = ['json', 'minimal', 'table', 'unknown'];

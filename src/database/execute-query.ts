@@ -1,5 +1,5 @@
 import { Client } from 'pg';
-import { ConnectionConfig } from './connectionConfig';
+import { ConnectionConfig } from './connection-config';
 
 export class ExecuteQuery {
   public async handle(

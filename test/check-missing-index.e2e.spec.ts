@@ -1,9 +1,9 @@
 import { Client } from 'pg';
 import { readFileSync } from 'fs';
-import { CheckMissingIndex } from '../src/checkMissingIndex';
-import { ExecuteQuery } from '../src/database/executeQuery';
-import { GetQuery } from '../src/database/getQuery';
-import { GetPrinter } from '../src/printers/getPrinter';
+import { CheckMissingIndex } from '../src/check-missing-index';
+import { ExecuteQuery } from '../src/database/execute-query';
+import { GetQuery } from '../src/database/get-query';
+import { GetPrinter } from '../src/printers/get-printer';
 
 describe('index e2e', () => {
   const connectionConfig = {

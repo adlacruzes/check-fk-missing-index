@@ -1,9 +1,9 @@
-import { CheckMissingIndex } from '../src/checkMissingIndex';
-import { ConnectionConfig } from '../src/database/connectionConfig';
+import { CheckMissingIndex } from '../src/check-missing-index';
+import { ConnectionConfig } from '../src/database/connection-config';
 import { mock, MockProxy } from 'jest-mock-extended';
-import { ExecuteQuery } from '../src/database/executeQuery';
+import { ExecuteQuery } from '../src/database/execute-query';
 import { Printer } from '../src/printers/printer';
-import { GetQuery } from '../src/database/getQuery';
+import { GetQuery } from '../src/database/get-query';
 
 describe('Check missing index', () => {
   let checkMissingIndex: CheckMissingIndex;

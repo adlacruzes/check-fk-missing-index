@@ -1,10 +1,10 @@
 import { Command, Option } from 'commander';
-import { CheckMissingIndex } from './checkMissingIndex';
-import { ConnectionConfig } from './database/connectionConfig';
-import { GetPrinter } from './printers/getPrinter';
+import { CheckMissingIndex } from './check-missing-index';
+import { ConnectionConfig } from './database/connection-config';
+import { GetPrinter } from './printers/get-printer';
 import * as chalk from 'chalk';
-import { ExecuteQuery } from './database/executeQuery';
-import { GetQuery } from './database/getQuery';
+import { ExecuteQuery } from './database/execute-query';
+import { GetQuery } from './database/get-query';
 
 const program = new Command();
 

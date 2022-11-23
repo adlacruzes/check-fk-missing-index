@@ -1,6 +1,6 @@
-import { GetQuery } from './database/getQuery';
-import { ExecuteQuery } from './database/executeQuery';
-import { ConnectionConfig } from './database/connectionConfig';
+import { GetQuery } from './database/get-query';
+import { ExecuteQuery } from './database/execute-query';
+import { ConnectionConfig } from './database/connection-config';
 import { Printer } from './printers/printer';
 
 export class CheckMissingIndex {

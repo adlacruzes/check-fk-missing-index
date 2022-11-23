@@ -1,7 +1,7 @@
 import { Printer } from './printer';
-import { JsonPrinter } from './jsonPrinter';
-import { MinimalPrinter } from './minimalPrinter';
-import { TablePrinter } from './tablePrinter';
+import { JsonPrinter } from './json-printer';
+import { MinimalPrinter } from './minimal-printer';
+import { TablePrinter } from './table-printer';
 
 export class GetPrinter {
   public handle(format: string): Printer {
