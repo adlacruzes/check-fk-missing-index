@@ -3,5 +3,6 @@ export default {
   testEnvironment: 'node',
   collectCoverageFrom: ['./src/**'],
   resetMocks: true,
-  coverageReporters: ['text']
+  coverageReporters: ['text'],
+  verbose: true,
 }
