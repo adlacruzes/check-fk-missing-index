@@ -28,8 +28,9 @@ program
   .option('-W, --password <password>', 'database password', '')
   .action((options) => {
     mainCommand(options)
-      .then((indexFound) => {
-        if (indexFound > 0) {
+      .then((result) => {
+        if (result.length > 0) {
+          console.log(new GetFormatter().handle(options.format));
           process.exit(1);
         }
 
@@ -43,12 +44,8 @@ program
 
 program.parse(process.argv);
 
-function mainCommand(options: any): Promise<number> {
-  return new CheckMissingIndex(
-    new ExecuteQuery(),
-    new GetQuery(),
-    new GetFormatter().handle(options.format),
-  ).handle(
+function mainCommand(options: any): Promise<any> {
+  return new CheckMissingIndex(new ExecuteQuery(), new GetQuery()).handle(
     new ConnectionConfig(
       options.username,
       options.host,
