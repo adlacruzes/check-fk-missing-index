@@ -1,12 +1,13 @@
 import { Formatter } from './formatter';
 import { getBorderCharacters, table } from 'table';
+import { MissingIndex } from '../missing-index';
 
 export class TableFormatter extends Formatter {
-  format(rows: any[]): string {
-    const headers = Object.keys(rows[0]).map((r) => r.toUpperCase());
+  format(elements: MissingIndex[]): string {
+    const headers = Object.keys(elements[0]).map((r) => r.toUpperCase());
 
-    const values = rows.map((row) => {
-      return Object.values(row);
+    const values = elements.map((element) => {
+      return Object.values(element);
     });
 
     values.unshift(headers);

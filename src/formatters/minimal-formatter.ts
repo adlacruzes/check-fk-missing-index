@@ -1,12 +1,13 @@
 import { EOL } from 'os';
+import { MissingIndex } from '../missing-index';
 import { Formatter } from './formatter';
 
 export class MinimalFormatter extends Formatter {
-  format(rows: any[]): string {
+  format(elements: MissingIndex[]): string {
     let result = 'Missing foreign keys index' + EOL;
 
-    for (const row of rows) {
-      result += ` - ${row.table}.${row.columns}` + EOL;
+    for (const element of elements) {
+      result += ` - ${element.table}.${element.columns}` + EOL;
     }
 
     return result;

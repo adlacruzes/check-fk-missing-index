@@ -1,7 +1,8 @@
+import { MissingIndex } from '../missing-index';
 import { Formatter } from './formatter';
 
 export class JsonFormatter extends Formatter {
-  format(rows: any[]): string {
-    return JSON.stringify(rows);
+  format(elements: MissingIndex[]): string {
+    return JSON.stringify(elements, null, 2);
   }
 }

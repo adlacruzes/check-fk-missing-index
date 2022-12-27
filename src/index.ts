@@ -5,6 +5,7 @@ import { GetFormatter } from './formatters/get-formatter';
 import * as chalk from 'chalk';
 import { ExecuteQuery } from './database/execute-query';
 import { GetQuery } from './database/get-query';
+import { MissingIndex } from './missing-index';
 
 const program = new Command();
 
@@ -30,7 +31,8 @@ program
     mainCommand(options)
       .then((result) => {
         if (result.length > 0) {
-          console.log(new GetFormatter().handle(options.format));
+          const formatter = new GetFormatter().handle(options.format);
+          console.log(formatter.format(result));
           process.exit(1);
         }
 
@@ -44,7 +46,7 @@ program
 
 program.parse(process.argv);
 
-function mainCommand(options: any): Promise<any> {
+function mainCommand(options: any): Promise<MissingIndex[]> {
   return new CheckMissingIndex(new ExecuteQuery(), new GetQuery()).handle(
     new ConnectionConfig(
       options.username,

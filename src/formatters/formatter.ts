@@ -1,3 +1,5 @@
+import { MissingIndex } from '../missing-index';
+
 export abstract class Formatter {
-  abstract format(rows: any[]): string;
+  abstract format(elements: MissingIndex[]): string;
 }
