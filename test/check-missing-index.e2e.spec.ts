@@ -3,6 +3,7 @@ import { readFileSync } from 'fs';
 import { CheckMissingIndex } from '../src/check-missing-index';
 import { ExecuteQuery } from '../src/database/execute-query';
 import { GetQuery } from '../src/database/get-query';
+import { MissingIndex } from '../src/missing-index';
 
 describe('index e2e', () => {
   const connectionConfig = {
@@ -37,6 +38,21 @@ describe('index e2e', () => {
       new GetQuery(),
     ).handle(connectionConfig);
 
-    expect(result).toEqual(expect.any(Object));
+    expect(result).toEqual([
+      new MissingIndex(
+        'table2',
+        'table1_id',
+        '0 bytes',
+        'table2_table1_id_fkey',
+        'table1',
+      ),
+      new MissingIndex(
+        'table4',
+        'table3_id',
+        '0 bytes',
+        'table4_table3_id_fkey',
+        'table3',
+      ),
+    ]);
   });
 });

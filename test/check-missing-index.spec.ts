@@ -3,6 +3,7 @@ import { ConnectionConfig } from '../src/database/connection-config';
 import { mock, MockProxy } from 'jest-mock-extended';
 import { ExecuteQuery } from '../src/database/execute-query';
 import { GetQuery } from '../src/database/get-query';
+import { MissingIndex } from '../src/missing-index';
 
 describe('Check missing index', () => {
   let checkMissingIndex: CheckMissingIndex;
@@ -17,12 +18,20 @@ describe('Check missing index', () => {
   });
 
   it('should return one result', async () => {
-    executeQuery.handle.mockReturnValue(Promise.resolve([1]));
+    const missingIndex = new MissingIndex(
+      'table4',
+      'table3_id',
+      '0 bytes',
+      'table4_table3_id_fkey',
+      'table3',
+    );
+
+    executeQuery.handle.mockReturnValue(Promise.resolve([missingIndex]));
 
     const result = await checkMissingIndex.handle(
       new ConnectionConfig('user', 'host', 'database', 'password', 1234),
     );
 
-    expect(result).toStrictEqual([1]);
+    expect(result).toStrictEqual([missingIndex]);
   });
 });
