@@ -2,7 +2,7 @@ import { Formatter } from './formatter';
 import { getBorderCharacters, table } from 'table';
 
 export class TableFormatter extends Formatter {
-  format(rows: any[]): void {
+  format(rows: any[]): string {
     const headers = Object.keys(rows[0]).map((r) => r.toUpperCase());
 
     const values = rows.map((row) => {
@@ -18,6 +18,6 @@ export class TableFormatter extends Formatter {
       border: getBorderCharacters(`ramac`),
     };
 
-    console.log(table(values, config));
+    return table(values, config);
   }
 }

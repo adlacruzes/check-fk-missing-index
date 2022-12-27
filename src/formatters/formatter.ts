@@ -1,3 +1,3 @@
 export abstract class Formatter {
-  abstract format(rows: any[]): void;
+  abstract format(rows: any[]): string;
 }
