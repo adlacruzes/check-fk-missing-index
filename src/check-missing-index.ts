@@ -1,13 +1,13 @@
 import { GetQuery } from './database/get-query';
 import { ExecuteQuery } from './database/execute-query';
 import { ConnectionConfig } from './database/connection-config';
-import { Printer } from './printers/printer';
+import { Formatter } from './formatters/formatter';
 
 export class CheckMissingIndex {
   constructor(
     private executeQuery: ExecuteQuery,
     private getQuery: GetQuery,
-    private printer: Printer,
+    private formatter: Formatter,
   ) {}
 
   public async handle(connectionConfig: ConnectionConfig): Promise<number> {
@@ -17,7 +17,7 @@ export class CheckMissingIndex {
     );
 
     if (result.length > 0) {
-      this.printer.print(result);
+      this.formatter.format(result);
     }
 
     return result.length;

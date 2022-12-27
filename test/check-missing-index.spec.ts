@@ -2,21 +2,25 @@ import { CheckMissingIndex } from '../src/check-missing-index';
 import { ConnectionConfig } from '../src/database/connection-config';
 import { mock, MockProxy } from 'jest-mock-extended';
 import { ExecuteQuery } from '../src/database/execute-query';
-import { Printer } from '../src/printers/printer';
+import { Formatter } from '../src/formatters/formatter';
 import { GetQuery } from '../src/database/get-query';
 
 describe('Check missing index', () => {
   let checkMissingIndex: CheckMissingIndex;
   let executeQuery: MockProxy<ExecuteQuery>;
   let getQuery: MockProxy<GetQuery>;
-  let printer: MockProxy<Printer>;
+  let formatter: MockProxy<Formatter>;
 
   beforeEach(() => {
     executeQuery = mock<ExecuteQuery>();
-    printer = mock<Printer>();
+    formatter = mock<Formatter>();
     getQuery = mock<GetQuery>();
 
-    checkMissingIndex = new CheckMissingIndex(executeQuery, getQuery, printer);
+    checkMissingIndex = new CheckMissingIndex(
+      executeQuery,
+      getQuery,
+      formatter,
+    );
   });
 
   it('should return one result', async () => {

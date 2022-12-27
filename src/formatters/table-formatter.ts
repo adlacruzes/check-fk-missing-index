@@ -1,8 +1,8 @@
-import { Printer } from './printer';
+import { Formatter } from './formatter';
 import { getBorderCharacters, table } from 'table';
 
-export class TablePrinter extends Printer {
-  print(rows: any[]): void {
+export class TableFormatter extends Formatter {
+  format(rows: any[]): void {
     const headers = Object.keys(rows[0]).map((r) => r.toUpperCase());
 
     const values = rows.map((row) => {

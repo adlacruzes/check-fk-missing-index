@@ -1,7 +1,7 @@
 import { Command, Option } from 'commander';
 import { CheckMissingIndex } from './check-missing-index';
 import { ConnectionConfig } from './database/connection-config';
-import { GetPrinter } from './printers/get-printer';
+import { GetFormatter } from './formatters/get-formatter';
 import * as chalk from 'chalk';
 import { ExecuteQuery } from './database/execute-query';
 import { GetQuery } from './database/get-query';
@@ -47,7 +47,7 @@ function mainCommand(options: any): Promise<number> {
   return new CheckMissingIndex(
     new ExecuteQuery(),
     new GetQuery(),
-    new GetPrinter().handle(options.format),
+    new GetFormatter().handle(options.format),
   ).handle(
     new ConnectionConfig(
       options.username,

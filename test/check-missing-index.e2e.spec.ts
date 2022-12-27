@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { CheckMissingIndex } from '../src/check-missing-index';
 import { ExecuteQuery } from '../src/database/execute-query';
 import { GetQuery } from '../src/database/get-query';
-import { GetPrinter } from '../src/printers/get-printer';
+import { GetFormatter } from '../src/formatters/get-formatter';
 
 describe('index e2e', () => {
   const connectionConfig = {
@@ -36,7 +36,7 @@ describe('index e2e', () => {
     const result = await new CheckMissingIndex(
       new ExecuteQuery(),
       new GetQuery(),
-      new GetPrinter().handle('json'),
+      new GetFormatter().handle('json'),
     ).handle(connectionConfig);
 
     expect(result).toBe(2);
