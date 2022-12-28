@@ -5,7 +5,7 @@ import { ExecuteQuery } from '../src/database/execute-query';
 import { GetQuery } from '../src/database/get-query';
 import { MissingIndex } from '../src/missing-index';
 
-describe('Check missing index', () => {
+describe('Check missing index - unit', () => {
   let checkMissingIndex: CheckMissingIndex;
   let executeQuery: MockProxy<ExecuteQuery>;
   let getQuery: MockProxy<GetQuery>;

@@ -5,7 +5,7 @@ import { ExecuteQuery } from '../src/database/execute-query';
 import { GetQuery } from '../src/database/get-query';
 import { MissingIndex } from '../src/missing-index';
 
-describe('index e2e', () => {
+describe('Check missing index - integration', () => {
   const connectionConfig = {
     user: 'postgres',
     host: 'db',
