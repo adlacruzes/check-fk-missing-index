@@ -1,4 +1,5 @@
 import { readFileSync } from 'fs';
+import * as path from 'path';
 import { Client } from 'pg';
 
 export class TestDatabase {
@@ -17,7 +18,9 @@ export class TestDatabase {
 
     await TestDatabase.client.query('CREATE SCHEMA IF NOT EXISTS public;');
 
-    const sql = readFileSync(__dirname + '/seed.sql').toString();
+    const sql = readFileSync(
+      path.join(__dirname, 'fixtures', fixture + '.sql'),
+    ).toString();
 
     await TestDatabase.client.query(sql);
   }

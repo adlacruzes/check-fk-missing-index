@@ -5,15 +5,13 @@ import { MissingIndex } from '../src/missing-index';
 import { TestDatabase } from './test-database';
 
 describe('Check missing index - integration', () => {
-  beforeEach(async () => {
-    await TestDatabase.loadFixture('');
-  });
-
   afterEach(async () => {
     await TestDatabase.clean();
   });
 
-  it('should return json', async () => {
+  it('should return two results', async () => {
+    await TestDatabase.loadFixture('should-return-two-results');
+
     const result = await new CheckMissingIndex(
       new ExecuteQuery(),
       new GetQuery(),
