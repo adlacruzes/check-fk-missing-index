@@ -21,9 +21,9 @@ export class CheckMissingIndex {
         new MissingIndex(
           row.table,
           row.columns,
-          row.size,
           row.constraint,
           row.referenced_table,
+          row.size,
         ),
       );
     });

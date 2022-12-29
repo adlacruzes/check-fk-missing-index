@@ -21,9 +21,9 @@ describe('Check missing index - unit', () => {
     const missingIndex = new MissingIndex(
       'table4',
       'table3_id',
-      '0 bytes',
       'table4_table3_id_fkey',
       'table3',
+      '0 bytes',
     );
 
     executeQuery.handle.mockReturnValue(Promise.resolve([missingIndex]));

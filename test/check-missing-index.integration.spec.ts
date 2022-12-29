@@ -21,16 +21,16 @@ describe('Check missing index - integration', () => {
       new MissingIndex(
         'table2',
         'table1_id',
-        '0 bytes',
         'table2_table1_id_fkey',
         'table1',
+        '0 bytes',
       ),
       new MissingIndex(
         'table4',
         'table3_id',
-        '0 bytes',
         'table4_table3_id_fkey',
         'table3',
+        '0 bytes',
       ),
     ]);
   });
