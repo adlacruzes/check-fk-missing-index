@@ -1,42 +1,23 @@
-import { Client } from 'pg';
-import { readFileSync } from 'fs';
 import { CheckMissingIndex } from '../src/check-missing-index';
 import { ExecuteQuery } from '../src/database/execute-query';
 import { GetQuery } from '../src/database/get-query';
 import { MissingIndex } from '../src/missing-index';
+import { TestDatabase } from './test-database';
 
 describe('Check missing index - integration', () => {
-  const connectionConfig = {
-    user: 'postgres',
-    host: 'db',
-    database: 'postgres',
-    password: 'test',
-    port: 5432,
-  };
-
-  const client = new Client(connectionConfig);
-
   beforeEach(async () => {
-    await client.connect();
-
-    await client.query('CREATE SCHEMA public;');
-
-    const sql = readFileSync(__dirname + '/seed.sql').toString();
-
-    await client.query(sql);
+    await TestDatabase.loadFixture('');
   });
 
   afterEach(async () => {
-    await client.query('DROP SCHEMA public CASCADE;');
-
-    await client.end();
+    await TestDatabase.clean();
   });
 
   it('should return json', async () => {
     const result = await new CheckMissingIndex(
       new ExecuteQuery(),
       new GetQuery(),
-    ).handle(connectionConfig);
+    ).handle(TestDatabase.connectionConfig);
 
     expect(result).toEqual([
       new MissingIndex(
