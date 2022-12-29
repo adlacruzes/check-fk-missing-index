@@ -15,6 +15,7 @@ Options:
   --username <username>  database user name (default: "postgres")
   --database <dbname>    database name to connect to (default: "postgres")
   --password <password>  database password (default: "")
+  --no-fail              return code 0 on exit
   -h, --help             display help for command
 
 ```

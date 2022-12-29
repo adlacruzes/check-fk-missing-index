@@ -27,16 +27,23 @@ program
   .option('--username <username>', 'database user name', 'postgres')
   .option('--database <dbname>', 'database name to connect to', 'postgres')
   .option('--password <password>', 'database password', '')
+  .option('--no-fail', 'return code 0 on exit')
   .action((options) => {
     mainCommand(options)
       .then((result) => {
+        let exitCode = 0;
+
         if (result.length > 0) {
           const formatter = new GetFormatter().handle(options.format);
           console.log(formatter.format(result));
-          process.exit(1);
+          exitCode = 1;
         }
 
-        process.exit(0);
+        if (!options.fail) {
+          exitCode = 0;
+        }
+
+        process.exit(exitCode);
       })
       .catch((error) => {
         console.log(chalk.white.bgRed.bold(error.toString()));
