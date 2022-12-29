@@ -8,12 +8,13 @@ Check foreign keys missing index in Postgres
 Usage: check-fk-missing-index [options]
 
 Options:
-  -V, --version              output the version number
-  --format <format>          Output format (choices: "table", "json", "minimal", default: "table")
-  -h, --host <host>          database server host or socket directory (default: "localhost")
-  -p, --port <port>          database server port (default: "5432")
-  -U, --username <username>  database user name (default: "postgres")
-  -d, --dbname <dbname>      database name to connect to (default: "postgres")
-  -W, --password <password>  database password (default: "")
-  --help                     display help for command
+  -V, --version          output the version number
+  --format <format>      Output format (choices: "table", "json", "minimal", default: "table")
+  --host <host>          database server host or socket directory (default: "localhost")
+  --port <port>          database server port (default: "5432")
+  --username <username>  database user name (default: "postgres")
+  --database <dbname>    database name to connect to (default: "postgres")
+  --password <password>  database password (default: "")
+  -h, --help             display help for command
+
 ```

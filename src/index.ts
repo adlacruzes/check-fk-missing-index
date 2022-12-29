@@ -19,14 +19,14 @@ program.addOption(
 
 program
   .option(
-    '-h, --host <host>',
+    '--host <host>',
     'database server host or socket directory',
     'localhost',
   )
-  .option('-p, --port <port>', 'database server port', '5432')
-  .option('-U, --username <username>', 'database user name', 'postgres')
-  .option('-d, --dbname <dbname>', 'database name to connect to', 'postgres')
-  .option('-W, --password <password>', 'database password', '')
+  .option('--port <port>', 'database server port', '5432')
+  .option('--username <username>', 'database user name', 'postgres')
+  .option('--database <dbname>', 'database name to connect to', 'postgres')
+  .option('--password <password>', 'database password', '')
   .action((options) => {
     mainCommand(options)
       .then((result) => {
