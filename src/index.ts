@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { Command, Option } from 'commander';
 import { CheckMissingIndex } from './check-missing-index';
 import { ConnectionConfig } from './database/connection-config';
