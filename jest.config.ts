@@ -5,4 +5,5 @@ export default {
   resetMocks: true,
   coverageReporters: ['text'],
   verbose: true,
+  roots: ['<rootDir>/test/']
 }
