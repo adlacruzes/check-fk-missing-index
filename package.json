@@ -1,7 +1,6 @@
 {
   "name": "check-fk-missing-index",
-  "private": true,
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Check foreign keys missing index",
   "license": "MIT",
   "scripts": {
