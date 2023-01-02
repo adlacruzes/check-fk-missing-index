@@ -13,6 +13,7 @@
     "test": "jest",
     "test:cov": "jest --coverage"
   },
+  "bin": "./dist/index.js",
   "files": [
     "dist"
   ],
