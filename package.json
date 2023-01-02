@@ -16,6 +16,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adlacruzes/check-fk-missing-index.git"
+  },
   "dependencies": {
     "chalk": "^4.1.2",
     "commander": "^9.4.0",
