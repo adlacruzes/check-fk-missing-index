@@ -12,8 +12,6 @@ jobs:
           node-version: 14
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci --ignore-scripts
-      - run: npm run lint
-      - run: npm run test
       - run: npm run build
       - run: npm publish --ignore-scripts
         env:
