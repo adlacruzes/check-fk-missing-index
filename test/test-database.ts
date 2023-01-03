@@ -1,14 +1,17 @@
 import { readFileSync } from 'fs';
 import * as path from 'path';
 import { Client } from 'pg';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 export class TestDatabase {
   public static connectionConfig = {
-    user: 'postgres',
-    host: 'db',
-    database: 'postgres',
-    password: 'test',
-    port: 5432,
+    user: process.env.TEST_POSTGRES_USER || 'postgres',
+    host: process.env.TEST_POSTGRES_HOSTNAME || 'db',
+    database: process.env.TEST_POSTGRES_DB || 'postgres',
+    password: process.env.TEST_POSTGRES_PASSWORD || 'test',
+    port: +(process.env.TEST_POSTGRES_PORT || 5432),
   };
 
   private static readonly client = new Client(this.connectionConfig);
