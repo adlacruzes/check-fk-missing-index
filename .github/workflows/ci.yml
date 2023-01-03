@@ -54,7 +54,7 @@ jobs:
       - name: Tests
         run: npm run test
         env:
-          POSTGRES_HOST: db
+          TEST_POSTGRES_HOSTNAME: localhost
 
       - name: Build
         run: npm run build
