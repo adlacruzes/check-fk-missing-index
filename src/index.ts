@@ -27,7 +27,7 @@ program
   )
   .option('--port <port>', 'database server port', '5432')
   .option('--username <username>', 'database user name', 'postgres')
-  .option('--database <dbname>', 'database name to connect to', 'postgres')
+  .option('--database <database>', 'database name to connect to', 'postgres')
   .option('--password <password>', 'database password', '')
   .option('--no-fail', 'return code 0 on exit')
   .action((options) => {
@@ -60,7 +60,7 @@ function mainCommand(options: any): Promise<MissingIndex[]> {
     new ConnectionConfig(
       options.username,
       options.host,
-      options.dbname,
+      options.database,
       options.password,
       options.port,
     ),
