@@ -3,6 +3,11 @@
   "version": "1.1.0",
   "description": "Check foreign keys missing index",
   "license": "MIT",
+  "keywords": [
+    "postgres",
+    "missing index",
+    "foreign keys"
+  ],
   "scripts": {
     "build": "tsc",
     "prebuild": "rimraf dist",
