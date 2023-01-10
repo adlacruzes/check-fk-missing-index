@@ -11,7 +11,7 @@ import { MissingIndex } from './missing-index';
 
 const program = new Command();
 
-program.name('check-fk-missing-index').version('1.1.0');
+program.name('check-fk-missing-index').version('1.1.1');
 
 program.addOption(
   new Option('--format <format>', 'Output format')
