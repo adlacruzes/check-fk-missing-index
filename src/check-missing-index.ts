@@ -4,7 +4,10 @@ import { ConnectionConfig } from './database/connection-config';
 import { MissingIndex } from './missing-index';
 
 export class CheckMissingIndex {
-  constructor(private executeQuery: ExecuteQuery, private getQuery: GetQuery) {}
+  constructor(
+    private executeQuery: ExecuteQuery,
+    private getQuery: GetQuery,
+  ) {}
 
   public async handle(
     connectionConfig: ConnectionConfig,
