@@ -10,7 +10,7 @@ import { MissingIndex } from './missing-index';
 
 const program = new Command();
 
-program.name('check-fk-missing-index').version('1.2.0');
+program.name('check-fk-missing-index').version('2.0.0');
 
 program.addOption(
   new Option('--format <format>', 'Output format')
