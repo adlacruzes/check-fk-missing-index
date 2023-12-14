@@ -54,6 +54,7 @@ program
 
 program.parse(process.argv);
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function mainCommand(options: any): Promise<MissingIndex[]> {
   return new CheckMissingIndex(new ExecuteQuery(), new GetQuery()).handle(
     new ConnectionConfig(

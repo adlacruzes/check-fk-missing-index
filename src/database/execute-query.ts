@@ -5,6 +5,7 @@ export class ExecuteQuery {
   public async handle(
     connectionConfig: ConnectionConfig,
     query: string,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
   ): Promise<any[]> {
     const client = new Client(connectionConfig);
 
