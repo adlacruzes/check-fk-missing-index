@@ -7,7 +7,7 @@ export class MinimalFormatter extends Formatter {
     let result = 'Missing foreign keys index' + EOL;
 
     for (const element of elements) {
-      result += ` - ${element.table}.${element.columns}` + EOL;
+      result += ` - ${element.table}.${element.column}` + EOL;
     }
 
     return result;

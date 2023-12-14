@@ -3,7 +3,7 @@ export class GetQuery {
     // https://www.cybertec-postgresql.com/en/index-your-foreign-key
     return `SELECT c.conrelid::regclass AS "table",
                  /* list of key column names in order */
-              string_agg(a.attname, ',' ORDER BY x.n) AS columns,
+              string_agg(a.attname, ',' ORDER BY x.n) AS column,
                    pg_catalog.pg_size_pretty(
                      pg_catalog.pg_relation_size(c.conrelid)
                      ) AS size,

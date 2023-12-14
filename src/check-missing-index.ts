@@ -23,7 +23,7 @@ export class CheckMissingIndex {
       result.push(
         new MissingIndex(
           row.table,
-          row.columns,
+          row.column,
           row.constraint,
           row.referenced_table,
           row.size,
