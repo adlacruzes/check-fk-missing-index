@@ -4,7 +4,6 @@ import { Command, Option } from 'commander';
 import { CheckMissingIndex } from './check-missing-index';
 import { ConnectionConfig } from './database/connection-config';
 import { GetFormatter } from './formatters/get-formatter';
-import * as chalk from 'chalk';
 import { ExecuteQuery } from './database/execute-query';
 import { GetQuery } from './database/get-query';
 import { MissingIndex } from './missing-index';
@@ -48,7 +47,7 @@ program
         process.exit(exitCode);
       })
       .catch((error) => {
-        console.log(chalk.white.bgRed.bold(error.toString()));
+        console.log(error.toString());
         process.exit(1);
       });
   });
